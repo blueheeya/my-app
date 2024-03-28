@@ -1,30 +1,31 @@
 // import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
-import Button from '@mui/material/Button';
+// import Button from '@mui/material/Button';
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-  const han = "test입니다.";
-  const hancss = {color:"#000",fontSize:"2em"}
-  function onmyClick(){
-    console.log("test")
+  const [tabMenu,setTabMenu] = useState(0);
+  const [content,setContent] = useState([
+    "1. 첫페이지를 불러옵니다 얍!",
+    "2. 둘째페이지를 불러옵니다 얍!",
+    "3. 셋째 페이지를 불러옵니다 얍얍!"
+  ]);
+  const [modalView,setModalView] = useState(false)
+  const modalClick = ()=>{
+    setModalView(true);
   }
   return (
     <>
-      <h3 className='title' style={hancss}>{han}</h3>
-      <button className='MuiButton-containedInfo' onClick={onmyClick}>클릭</button>
-      <Button variant="text">Text</Button>
-      <Button variant="contained">Contained</Button>
-      <Button variant="outlined">Outlined</Button>
-      <div className="container">
-        <div className='row'>
-          <div className='col'>1</div>
-          <div className='col'>2</div>
-          <div className='col'>3</div>
-          <div className='col'>4</div>
-          <div className='col'>5</div>
-          <div className='col'>6</div>
-        </div>
-      </div>
+    <ul className='tabmenu'>
+      <li className={`${tabMenu == 0 ? "active" : null}`} onClick={()=>{setTabMenu(0);}}>tab1</li>
+      <li className={`${tabMenu == 1 ? "active" : null}`} onClick={()=>{setTabMenu(1);}}>tab2</li>
+      <li className={`${tabMenu == 2 ? "active" : null}`} onClick={()=>{setTabMenu(2);}}>tab3</li>
+    </ul>
+    <div>{content[tabMenu]}</div>
+    <button className='primary' onClick={modalClick}>모달창을 열어랏</button>
+    {modalView == true ? <div className='madals'>모달 테스트</div>:null}
     </>
   );
 }

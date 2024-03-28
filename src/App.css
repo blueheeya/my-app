@@ -1,8 +1,31 @@
-.title {
+* {padding: 0;margin: 0;box-sizing: border-box;}
+ul,li {padding: 0; list-style: none;}
+.text {
+  background: #8bb0c5;
   font-size: 60px;
   text-align: center;
 }
 .btn {
   border-radius: 10px;
   padding: 10px;
+}
+.tabmenu {
+  display: flex; 
+  gap: 10px;
+}
+.tabmenu li {
+  padding: 5px 16px;
+  background: #ccc;
+  border-radius: 10px;
+}
+.tabmenu li.active {
+  background: #8bb0c5;
+}
+.modals {
+  background: #00a2ff;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
